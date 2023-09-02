@@ -42,7 +42,7 @@
                    </h1>
    
                    <div class="order">
-                       <a href="#" class="order-button">Full Menu</a>
+                       <a href="menu.php" class="order-button">Full Menu</a>
                    </div>
                 </div>
 
@@ -147,7 +147,7 @@
                     </div>
 
                     <div class="individual-blog">
-                        <img src="images/dish1.png" alt="">
+                        <img src="images/drink4" alt="">
                         <div class="description-icons">
                             <p>Lorem ipsum dolor sit amet consectetur 
                             adipisicing elit. Consequuntur placeat quod esse?</p>
@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="individual-blog">
-                        <img src="images/dish1.png" alt="">
+                        <img src="images/dessert4.png" alt="">
                         <div class="description-icons">
                             <p>Lorem ipsum dolor sit amet consectetur 
                             adipisicing elit. Consequuntur placeat quod esse?</p>
@@ -260,6 +260,7 @@
             <div class="contact-footer">
                 <div class="contact">
                     <h2>Eats</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Quae cupiditate cum soluta voluptatem accusantium num <br>quisquam maiores, iste exercitationem iure?</p>
                     <div class="contact-image first">
                         <img src="icons/003-location.png" alt=""><p>Seventh Street Towers, <br>Milky Avenue</p>
                     </div>
