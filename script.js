@@ -32,3 +32,21 @@ dessertBtn.addEventListener("click", ()=>{
     displayImageTwo.src="images/dessert3.png";
     displayImageThree.src="images/dessert4.png";
 });
+
+// show the signup modal when signup link is clicked
+const signup = document.getElementById("signup");
+const login = document.getElementById("login");
+
+
+const signupForm = document.querySelector(".signup-form");
+const loginForm = document.querySelector(".login-form");
+
+signup.addEventListener("click", ()=>{
+    signupForm.classList.add("active");
+    loginForm.classList.add("active");
+});
+
+login.addEventListener("click", ()=>{
+    signupForm.classList.remove("active");
+    loginForm.classList.remove("active");
+});

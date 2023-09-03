@@ -6,6 +6,6 @@
     <title>Restaurant Website</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700;900&family=Playfair:opsz,wght@5..1200,400;5..1200,500;5..1200,600;5..1200,700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/ed20622ed8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">     
+    <link rel="stylesheet" href="css/style.css">     
 </head>
 <body>

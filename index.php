@@ -1,65 +1,38 @@
 <?php require __DIR__ . "/includes/header.php"?>
 
 <section class="container">
-    <div class="fixed-navbar">
-        <div class="wrapper">
-            <!-- toggle button available on small screens -->
-            <button class="nav-toggle">
-                <span class="hamburger"></span>
-            </button>
+    <?php require __DIR__ . "/includes/navbar.php"?>
+            <!-- introduction statement -->
+    <div class="introduction wrapper">
+        <div class="intro-col">
+            <h1 class="heading">Delicious <br>
+                <span>Meals</span>
+                <br>
+                    for everyone
+            </h1>
 
-            <div class="logo-nav">
-                <div class="logo">
-                    <!-- <img src="images/logo.png" alt=""> -->
-                    <a href="index.html" class="logo-text">Eats</a>
-                </div>
-
-                <nav class="navbar">
-                    <ul class="nav-group">
-                        <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-                        <li class="nav-item"><a href="menu.php" class="nav-link">Menu</a></li>
-                        <li class="nav-item"><a href="login.php" class="nav-link">Login</a></li>
-
-                    </ul>
-                </nav>
+            <div class="order">
+                <a href="menu.php" class="order-button">Full Menu</a>
             </div>
         </div>
-    </div>
 
-            <!-- introduction statement -->
-            <div class="introduction wrapper">
-                <div class="intro-col">
-                    <h1 class="heading">Delicious <br>
-                        <span>Meals</span>
-                        <br>
-                         for everyone
-                   </h1>
-   
-                   <div class="order">
-                       <a href="menu.php" class="order-button">Full Menu</a>
-                   </div>
-                </div>
+        <div class="ratings">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star-half-stroke"></i>
 
-                <div class="ratings">
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-solid fa-star"></i>
-                    <i class="fa-regular fa-star-half-stroke"></i>
+            <h2>Five Star <br> Restaurant</h2>
 
-                    <h2>Five Star <br> Restaurant</h2>
-
-                    <div class="social-icons">
-                        <i class="fa-brands fa-instagram"></i>
-                        <i class="fa-brands fa-facebook"></i>
-                        <i class="fa-brands fa-twitter"></i>
-                    </div>
-
-                </div>
+            <div class="social-icons">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-twitter"></i>
             </div>
-        
-    </section>
+
+        </div>
+    </div>        
+</section>
 
 
     <main class="foods-section">
@@ -249,52 +222,7 @@
 </section>
 
 
-<footer class="last-section">
-    <div class="wrapper">
-        <div class="contact-footer">
-            <div class="contact">
-                <h2>Eats</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Quae cupiditate cum soluta voluptatem accusantium num <br>quisquam maiores, iste exercitationem iure?</p>
-                <div class="contact-image first">
-                    <img src="icons/003-location.png" alt=""><p>Seventh Street Towers, <br>Milky Avenue</p>
-                </div>
-                <div class="contact-image">
-                    <img src="icons/002-mail.png" alt=""><p>milky4500@gmail.com</p>
-                </div>
-                <div class="contact-image">
-                    <img src="icons/001-phone-call.png" alt=""><p>0927726363</p>
-                </div>
-                
-            </div>
-
-            <div class="footer-items">
-                <ul>
-                    <li>Book Reservation</li>
-                    <li>Lunch Specials</li>
-                    <li>Dinner Treats</li>
-                    </ul>
-                <ul>
-                    <li>BreakFast</li>
-                    <li>Catering options</li>
-                    <li>Sitemap</li>
-                </ul>
-                <div class="signup-part">
-                    <input type="text" placeholder="Your email">
-                    <button class="signup">Signup</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="social-media">
-            <img src="icons/004-instagram.png" alt="">
-            <img src="icons/005-facebook-app-symbol.png" alt="">
-            <img src="icons/006-linkedin.png" alt="">
-        </div>
-    
-        <p class="copyright-text">© Copyright 2023 Fathi Abdi | All rights reserved</p>
-    </div>
-
-</footer>
+<?php require __DIR__ . "/includes/footer-section.php"?>
 
 <?php require __DIR__ . "/includes/footer.php"?>
     

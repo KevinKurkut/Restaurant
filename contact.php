@@ -1,31 +1,11 @@
-<?php require __DIR__ . "includes/header.php"?>
+<?php require __DIR__ . "/includes/header.php"?>
     
     <section class="sub-container contactt">
-        <div class="wrapper">
-            <!-- toggle button available on small screens -->
-            <button class="nav-toggle">
-                <span class="hamburger"></span>
-            </button>
 
-            <div class="logo-nav">
-                <a class="logo">
-                    <!-- <img src="images/logo.png" alt=""> -->
-                    <p class="logo-text">Eats</p>
-                </a>
-
-                <nav class="navbar">
-                    <ul class="nav-group">
-                        <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
-                        <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
-                        <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-                        <li class="nav-item"><a href="menu.php" class="nav-link">Menu</a></li>
-                    </ul>
-                </nav>
-            </div>
-
-            <!-- Heading -->
-            <h1 class="heading page-heading">Contact Us</h1>
-        </div>
+        <?php require __DIR__ . "/includes/navbar.php"?>
+        
+        <!-- Heading -->
+        <h1 class="heading page-heading">Contact Us</h1>
     </section>
 
     <section class="contact-main">
@@ -115,4 +95,4 @@
         </div>
 
     </footer>
-    <?php require __DIR__ . "includes/footer.php"?>
+    <?php require __DIR__ . "/includes/footer.php"?>

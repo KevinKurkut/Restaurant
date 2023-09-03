@@ -9,7 +9,7 @@
     --secondary: #000;
     --grey: #D3D3D3;
 }
-/* ------MOBILE FIRST STYLES------ */
+/* --------------MOBILE FIRST STYLES------------ */
 
 body{
     font-family: 'Playfair', serif;
@@ -111,7 +111,7 @@ img{
 }
 .nav-link{
     text-decoration: none;
-    color: var(--primary);
+    color: var(--secondary);
     font-weight: 600;
     text-transform: uppercase;
     position: relative;
@@ -515,7 +515,28 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     font-weight: 700;
     font-size: 20px;
 }
-/* -----LARGE SCREENS----- */
+
+/* !!!!!Login!!!!!!!! */
+.intro-login{
+    text-align: center;
+}
+.login-intro{
+    margin-bottom: 1rem;
+}
+.login-form{
+    width: 100%;
+}
+/* hiding and showing signup form */
+.signup-form{
+    display: none;
+}
+.signup-form.active{
+    display: block;
+}
+.login-form.active{
+    display: none;
+}
+/* -------------------------LARGE SCREENS------------------------ */
 @media(min-width:800px){
     .wrapper{
         max-width: 1100px;
@@ -629,6 +650,16 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     .child{
         flex-basis: 30%;
         text-align: center;
+    }
+    /* ------LOGIN ------- */
+    .intro-login{
+        display: flex;
+        gap: 1rem;
+        align-items: center;
+        justify-content: space-around;
+    }
+    .login-form{
+        width: 400px;
     }
 
 }
