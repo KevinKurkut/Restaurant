@@ -18,11 +18,14 @@
                     <h2>Login</h2>
                     <div class="input-box">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" id="email" placeholder="Enter your email">
+                        <input type="text" id="LoginEmail" placeholder="Enter your email">
                     </div>
                     <div class="input-box">
-                        <i class="fa-solid fa-key"></i>
-                        <input type="text" id="password" placeholder="Enter Your password">
+                        <i class="fa-solid fa-key"></i>  
+                        <div class="hiddenPW-input">
+                            <input type="password" id="LoginPassword" placeholder="Enter Your password">
+                            <i class="fa-regular fa-eye-slash pw-hide"></i>
+                        </div>
                     </div>
                     <div class="submit">
                         <input type="submit" value="Login">
@@ -35,24 +38,30 @@
             <!-- signup form -->
 
             <div class="signup-form">            
-                <form action="#">
+                <form action="action.php0">
                     <h2>Sign In</h2>
                     <div class="input-box">
                         <i class="fa-regular fa-user"></i>
-                        <input type="text" id="fullName">
+                        <input type="text" id="fullName" placeholder="Enter your FullName">
                     </div>
                     <div class="input-box">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" id="email">
-                    </div>
-                    <div class="input-box">
-                        <input type="text" id="password">
-                        <i class="fa-solid fa-key"></i>
-                        <i class="fa-regular fa-eye-slash pw-hide"></i>
+                        <input type="text" id="email" placeholder="Enter your email">
                     </div>
                     <div class="input-box">
                         <i class="fa-solid fa-key"></i>
-                        <input type="text" id="rpassword">
+                        <div class="hiddenPW-input">
+                            <input type="password" id="password" placeholder="Enter your Password">
+                            <i class="fa-regular fa-eye-slash pw-hide"></i>
+                        </div>
+                        
+                    </div>
+                    <div class="input-box">
+                        <i class="fa-solid fa-key"></i>
+                        <div class="hiddenPW-input">
+                            <input type="password" id="rpassword" placeholder="Confirm your password">
+                            <i class="fa-regular fa-eye-slash pw-hide"></i>
+                        </div>   
                     </div>
                     <div class="submit">
                         <input type="submit" value="Signup">
@@ -66,11 +75,11 @@
 </div>
     
 <?php require __DIR__ . "/includes/footer-section.php"?>
-
 <script>
     <?php require __DIR__ . "/script.js";?>
 </script>
 
-<?php require __DIR__ . "/includes/footer.php"?>
+</body>
+</html>
 
 

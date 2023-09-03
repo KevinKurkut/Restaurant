@@ -25,7 +25,6 @@ img{
     background-size: cover;
     width: 100%;
     min-height: 100vh;
-    padding: 10px;
 }
 .wrapper{
     width: 90%;
@@ -442,7 +441,6 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     background-size: cover;
     width: 100%;
     min-height: 50vh;
-    padding: 10px;
     text-align: center;
     color: white;
 }
@@ -536,6 +534,48 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .login-form.active{
     display: none;
 }
+.login-form h2{
+    margin-bottom: 1rem;
+}
+.input-box{
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+.input-box i{
+    font-size: 25px;
+}
+.input-box input{
+    padding: 10px 20px;
+}
+.submit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+.submit input{
+    margin-bottom: 0;
+    width: 40%;
+    background-color: var(--accent);
+    padding: 10px;
+}
+.hiddenPW-input{
+    background-color: var(--grey);
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+.hiddenPW-input input{
+    margin-bottom: 0;
+}
+.hiddenPW-input i{
+    margin-right: 10px;
+}
+
+
 /* -------------------------LARGE SCREENS------------------------ */
 @media(min-width:800px){
     .wrapper{

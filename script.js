@@ -1,4 +1,21 @@
-// navbar toggle in small screens
+// show the signup modal when signup link is clicked
+const signup = document.getElementById("signup");
+const login = document.getElementById("login");
+
+const signupForm = document.querySelector(".signup-form");
+const loginForm = document.querySelector(".login-form");
+
+signup.addEventListener("click", ()=>{
+    signupForm.classList.add("active");
+    loginForm.classList.add("active");
+});
+
+login.addEventListener("click", ()=>{
+    signupForm.classList.remove("active");
+    loginForm.classList.remove("active");
+});
+
+
 
 const navToggle = document.querySelector(".nav-toggle");
 const navBar = document.querySelector(".navbar");
@@ -7,6 +24,27 @@ navToggle.addEventListener("click", ()=>{
     navBar.classList.toggle("navbar--visible");
 });
 
+// Hide and show password option
+const pwHide = document.querySelectorAll(".pw-hide");
+
+    pwHide.forEach((icon)=>{
+        icon.onclick =  function(){
+            let pwInput = icon.parentElement.querySelector('input');
+        // if the user clicks on eye slash icon, turn the password input into text and show eye open icon
+        if (pwInput.type === "password") {
+            pwInput.type = "text";
+            icon.classList.replace("fa-eye-slash", "fa-eye");
+        }
+        else {
+            // else the user has not clicked on eye icon, it should remain as it is.   
+            pwInput.type = "password"
+            icon.classList.replace("fa-eye", "fa-eye-slash");
+        }
+    }
+        
+    })
+
+//show different meal images based on the buttons that clicked them
 const mealBtn = document.getElementById("mealBtn");
 const dessertBtn = document.getElementById("dessertBtn");
 const drinksBtn = document.getElementById("drinksBtn");
@@ -33,20 +71,5 @@ dessertBtn.addEventListener("click", ()=>{
     displayImageThree.src="images/dessert4.png";
 });
 
-// show the signup modal when signup link is clicked
-const signup = document.getElementById("signup");
-const login = document.getElementById("login");
 
 
-const signupForm = document.querySelector(".signup-form");
-const loginForm = document.querySelector(".login-form");
-
-signup.addEventListener("click", ()=>{
-    signupForm.classList.add("active");
-    loginForm.classList.add("active");
-});
-
-login.addEventListener("click", ()=>{
-    signupForm.classList.remove("active");
-    loginForm.classList.remove("active");
-});
