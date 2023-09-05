@@ -329,7 +329,6 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 }
 .catering-header{
     font-size: 26px;
-    text-align: center;
     letter-spacing: 1px;
     margin-bottom: 1rem;
     text-transform: uppercase;

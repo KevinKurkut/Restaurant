@@ -14,21 +14,21 @@
             </div>
 
             <div class="login-form">             
-                <form action="#">
+                <form action="action.php" method="POST">
                     <h2>Login</h2>
                     <div class="input-box">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" id="LoginEmail" placeholder="Enter your email">
+                        <input type="text" id="LoginEmail" placeholder="Enter your email" name="loginEmail">
                     </div>
                     <div class="input-box">
                         <i class="fa-solid fa-key"></i>  
                         <div class="hiddenPW-input">
-                            <input type="password" id="LoginPassword" placeholder="Enter Your password">
+                            <input type="password" id="LoginPassword" placeholder="Enter Your password" name="loginPassword">
                             <i class="fa-regular fa-eye-slash pw-hide"></i>
                         </div>
                     </div>
                     <div class="submit">
-                        <input type="submit" value="Login">
+                        <input type="submit" value="Login" name="login">
                     </div>  
                     <p>Don't have an account? <a href="#" id="signup">Signup</a></p>
                 </form>
@@ -38,20 +38,20 @@
             <!-- signup form -->
 
             <div class="signup-form">            
-                <form action="action.php0">
+                <form action="action.php" method="POST">
                     <h2>Sign In</h2>
                     <div class="input-box">
                         <i class="fa-regular fa-user"></i>
-                        <input type="text" id="fullName" placeholder="Enter your FullName">
+                        <input type="text" id="fullName" placeholder="Enter your FullName" name="fullName">
                     </div>
                     <div class="input-box">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" id="email" placeholder="Enter your email">
+                        <input type="text" id="email" placeholder="Enter your email" name="email">
                     </div>
                     <div class="input-box">
                         <i class="fa-solid fa-key"></i>
                         <div class="hiddenPW-input">
-                            <input type="password" id="password" placeholder="Enter your Password">
+                            <input type="password" id="password" placeholder="Enter your Password" name="password">
                             <i class="fa-regular fa-eye-slash pw-hide"></i>
                         </div>
                         
@@ -59,12 +59,12 @@
                     <div class="input-box">
                         <i class="fa-solid fa-key"></i>
                         <div class="hiddenPW-input">
-                            <input type="password" id="rpassword" placeholder="Confirm your password">
+                            <input type="password" id="rpassword" placeholder="Confirm your password" name="cpassword">
                             <i class="fa-regular fa-eye-slash pw-hide"></i>
                         </div>   
                     </div>
                     <div class="submit">
-                        <input type="submit" value="Signup">
+                        <input type="submit" value="Signup" name="signup">
                     </div>  
                     <p>Already have an account? <a href="#" id="login">Login</a></p>
                 </form>
