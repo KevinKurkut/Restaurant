@@ -1,10 +1,9 @@
+<?php require __DIR__ . "/includes/navbar.php"?>
 <?php require __DIR__ . "/includes/header.php"?>
 
 <style>
     <?php include "css/style.css"?>
 </style>
-
-<?php require __DIR__ . "/includes/navbar.php"?>
 
 <div class="form-container">
     <div class="wrapper">

@@ -40,40 +40,38 @@ if (isset($_POST['signup'])) {
         header("Location: login.php");
         exit;
     }
-    $sql->close();
     
 }
 
 
 // process the login form 
-elseif (isset($_POST['login'])) {
+if (isset($_POST['login'])) {
     $loginEmail = $_POST['loginEmail'];
     $loginPassword = $_POST['loginPassword'];
 
-    $stmt = $mysqli->prepare("SELECT * FROM users WHERE Email = ? AND Password = ?");
-    $stmt->bind_param("ss", $loginEmail, $loginPassword);
+    $stmt = $mysqli->prepare("SELECT * FROM users WHERE Email = ?");
+    $stmt->bind_param("s", $loginEmail);
     $stmt->execute();
-    $res = $stmt->get_result();
-    if ($res->num_rows > 0) {		
+    $res = $stmt->get_result(); 
         if ($row = $res->fetch_assoc()) {
-            if (password_verify($hash_password, $password)) {
+            if (password_verify($loginPassword, $row['Password'])) {
                 $sessionEmail = $row['Email'];
                 $sessionId = $row['id'];  
+                $sessionName = $row['Fullname'];  
                 
                 $_SESSION['auth'] = array(
                     'email'=> $sessionEmail,
-                    'id'=> $sessionId
+                    'id'=> $sessionId,
+                    'fname'=> $sessionName
                 );
 
-                header("Location: index.php");
+                header("location: index.php");
                 exit;
             }      
         }
-    }
-      
-    else {
-        echo "User doesn't exist";
-    }
+        // else {
+        //     echo "User doesn't exist";
+        // }  
     $stmt->close();
     
 }

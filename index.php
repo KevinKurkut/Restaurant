@@ -1,4 +1,5 @@
-<?php require __DIR__ . "/includes/header.php"?>
+<?php 
+require __DIR__ . "/includes/header.php"?>
 
 <section class="container">
     <?php require __DIR__ . "/includes/navbar.php"?>
