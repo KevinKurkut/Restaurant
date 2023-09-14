@@ -1,4 +1,6 @@
-<?php require __DIR__ . "/includes/header.php"?>
+<?php require __DIR__ . "/includes/header.php";
+require __DIR__ . "/config/database.php"
+?>
     <section class="sub-container">
      
         <?php require __DIR__ . "/includes/navbar.php"?>
@@ -11,106 +13,80 @@
         <div class="wrapper">
             <h2 class="catering-header" id="mealsId">Meals</h2>
             <div class="meal-row">
-                <div class="child">
-                    <img src="images/dish1.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
-
-                <div class="child">
-                    <img src="images/meal3.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
-                <div class="child">
-                    <img src="images/meal4.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
+                <?php
+                    // get the name, price and description from database
+                    $sql = $mysqli->prepare("SELECT * FROM meals LIMIT 3");
+                    $sql->execute();
+                    $res = $sql->get_result(); 
+                    while ($row = $res->fetch_assoc()) :
+                        ?>
+                        <div class="child">
+                            <img src="<?php echo $row['image']?>" alt="" class="menu-img">
+                                <div>
+                                    <p class="menu-name"><?php echo $row['Name']?></p>
+                                    <p class="price"><?php echo $row['Price']?></p>
+                                    <p><?php echo $row['Description']?></p>
+                                    <button class="menu-btn"><a href="cart.php?<?php echo $row['id']?>">Add to cart</a></button>
+                                </div>
+                        </div>
+                <?php endwhile?>
             </div>
 
+
+            <!------------- DRINKS SECTION ------------->
             <h2 class="catering-header" id="drinksId">Drinks</h2>
-
             <div class="meal-row">
-                <div class="child">
-                    <img src="images/drink4.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
-
-                <div class="child">
-                    <img src="images/drinks2.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
-
-                <div class="child">
-                    <img src="images/drink3.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
-
+                <?php
+                    // get the name, price and description from database
+                    $sql = $mysqli->prepare("SELECT * FROM drinks LIMIT 3");
+                    $sql->execute();
+                    $res = $sql->get_result(); 
+                    while ($row = $res->fetch_assoc()) :
+                        ?>
+                        <div class="child">
+                            <img src="<?php echo $row['image']?>" alt="" class="menu-img">
+                                <div>
+                                    <p class="menu-name"><?php echo $row['Name']?></p>
+                                    <p class="price"><?php echo $row['Price']?></p>
+                                    <p><?php echo $row['Description']?></p>
+                                    <button class="menu-btn"><a href="cart.php?<?php echo $row['id']?>">Add to cart</a></button>
+                                </div>
+                        </div>
+                <?php endwhile?>
             </div>
+
+
+
+            <!-- -----------DESSERT SECTION--------- -->
 
             <h2 class="catering-header" id="dessertId">Dessert</h2>
 
             <div class="meal-row">
-                <div class="child">
-                    <img src="images/dessert4.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
-
-                <div class="child">
-                    <img src="images/dessert2.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
-
-                <div class="child">
-                    <img src="images/dessert3.png" alt="" class="menu-img">
-                    <div>
-                        <p>Lorem, ipsum.</p>
-                        <p>Lorem, ipsum.</p>
-                        <p class="price">Ksh 200</p>
-                        <button class="menu-btn">Order</button>
-                    </div>
-                </div>
+                <?php
+                    // get the name, price and description from database
+                    $sql = $mysqli->prepare("SELECT * FROM meals LIMIT 3");
+                    $sql->execute();
+                    $res = $sql->get_result(); 
+                    while ($row = $res->fetch_assoc()) :
+                        ?>
+                        <div class="child">
+                            <img src="<?php echo $row['image']?>" alt="" class="menu-img">
+                                <div>
+                                    <p class="menu-name"><?php echo $row['Name']?></p>
+                                    <p class="price"><?php echo $row['Price']?></p>
+                                    <p><?php echo $row['Description']?></p>
+                                    <button class="menu-btn"><a href="cart.php?<?php echo $row['id']?>">Add to cart</a></button>
+                                </div>
+                        </div>
+                <?php endwhile?>
             </div>         
         </div>
     </section>
+
+
+
+
+    <!-- ----------FOOTER SECTION ----------- -->
 
     <footer class="last-section">
         <div class="wrapper">
