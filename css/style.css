@@ -19,8 +19,12 @@ body{
 img{
     max-width: 100%;
 }
+a{
+    text-decoration: none;
+}
 .container{
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(images/banner2.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), 
+    url(images/banner2.jpg);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -75,14 +79,13 @@ img{
     transform: translateY(3px);
 }
 .logo{
-    width: 100%;
+    /* width: 100%; */
     text-align: center;
 }
 .logo-text{
     color: var(--accent);
     font-size: 40px;
     font-style: italic;
-    text-decoration: none;
 }
 .fixed-navbar{
     background-color: #F6EBFF;
@@ -108,8 +111,28 @@ img{
 .nav-item{
     padding: 0.5rem;
 }
+/* shopping cart */
+.nav-item i{
+    font-size: 25px;
+    color: var(--accent);
+    position: relative;
+}
+.fa-cart-shopping::after{
+    content: "0";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: var(--secondary);
+    color: var(--primary);
+    right: 0;
+    bottom: 15px;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .nav-link{
-    text-decoration: none;
     color: var(--secondary);
     font-weight: 600;
     text-transform: uppercase;
@@ -163,7 +186,6 @@ img{
     gap: 2rem;
 }
 .order-button{
-    text-decoration: none;
     font-size: 18px;
     text-transform: uppercase;
     padding: 15px 30px;
@@ -221,6 +243,9 @@ img{
     margin: 0 5px;
     cursor: pointer;
 }
+.menu-btn a{
+    color: var(--secondary);
+}
 .view-more{
     display: flex;
     justify-content: center;
@@ -233,7 +258,6 @@ img{
     opacity: 0.9;
     text-transform: uppercase;
     color: var(--secondary);
-    text-decoration: none;
     font-weight: 700;
 }
 .view-menu:hover{
@@ -328,11 +352,13 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     margin-bottom: 2rem;
 }
 .catering-header{
+    text-align: center;
     font-size: 26px;
     letter-spacing: 1px;
-    margin-bottom: 1rem;
+    margin: 2rem 0;
     text-transform: uppercase;
 }
+
 .catering-header span{
     color: var(--accent);
 }
@@ -435,7 +461,8 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 
 /* About us page */
 .sub-container{
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(images/banner2.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), 
+    url(images/banner2.jpg);
     background-position: center;
     background-size: cover;
     width: 100%;
@@ -508,7 +535,10 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 .child p{
     margin-bottom: 8px;
 }
-.price{
+.menu-name{
+    margin-top: 1rem;
+}
+.price, .menu-name{
     font-weight: 700;
     font-size: 20px;
 }
