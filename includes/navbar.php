@@ -1,8 +1,5 @@
 <?php session_start()
 ?>
-<style>
-    <?php include "css/style.css"?>
-</style>
 
 <div class="fixed-navbar">
     <div class="wrapper">
@@ -14,7 +11,7 @@
         <div class="logo-nav">
             <div class="logo">
                 <!-- <img src="images/logo.png" alt=""> -->
-                <a href="index.html" class="logo-text">Eats</a>
+                <a href="index.php" class="logo-text">Eats</a>
             </div>
 
             <nav class="navbar">

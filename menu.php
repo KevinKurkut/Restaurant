@@ -26,7 +26,7 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <button class="menu-btn"><a href="cart.php?<?php echo $row['id']?>">Add to cart</a></button>
+                                    <button class="menu-btn"><a href="cart.php?id=<?php echo $row['id']?>">Add to cart</a></button>
                                 </div>
                         </div>
                 <?php endwhile?>
@@ -49,7 +49,7 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <button class="menu-btn"><a href="cart.php?<?php echo $row['id']?>">Add to cart</a></button>
+                                    <button class="menu-btn"><a href="cart.php?idd=<?php echo $row['id']?>">Add to cart</a></button>
                                 </div>
                         </div>
                 <?php endwhile?>
@@ -75,7 +75,7 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <button class="menu-btn"><a href="cart.php?<?php echo $row['id']?>">Add to cart</a></button>
+                                    <button class="menu-btn"><a href="cart.php?iddd=<?php echo $row['id']?>">Add to cart</a></button>
                                 </div>
                         </div>
                 <?php endwhile?>
