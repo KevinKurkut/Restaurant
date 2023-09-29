@@ -10,14 +10,15 @@ require __DIR__ . "/config/database.php";
 
 <?php 
 // insert meal into the cart table in database 
-if (isset($_GET['id'])) {
-    $id = $_GET['id'];
-    $statement = $mysqli->prepare("SELECT * FROM meals WHERE id = '$id'");
-    $statement->execute();
-    $result = $statement->getResult();
-    $row = $result->fetch_assoc();
-}
+if (isset($_POST['foodSubmit'])) {
+    $product_id = $_POST['product_id'];
+    $user_id = $_POST['user_id'];
+    
 
+    $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id) VALUES(?, ?)");
+    $statement->bind_param("ii", $user_id, $product_id);
+    $statement->execute();
+}
 ?>
 
     <section class="top-cart">
@@ -25,33 +26,53 @@ if (isset($_GET['id'])) {
             <div class="cart-container">
                 <div class="card-details">
                     <div class="cart-heading">
-                        <h1>Cart (3)</h1>
+                        <!-- get the cart number from the database -->
+                        <?php 
+                        $stmt = $mysqli->prepare("SELECT cart_id FROM cart");
+                        $stmt->execute();
+                        $result = $stmt->get_result();
+                        if ($record = $result->fetch_assoc()) :?>
+                            <h1>Cart (<?php echo $record['cart_id']?>)</h1>
+                        <?php endif ?>
+                        
                     </div>
                     <div class="cart-body">
-                        <div class="cart-description">
-                            <img src="image/dessert4.png" alt="">
-                            <div>
-                                <h3>Product Name</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quis, nobis!</p>
+                        <!-- Get the cart contents -->
+                        <?php
+                            $sql = $mysqli->prepare("SELECT products.Name, products.Price,
+                            products.Description, products.image, cart.product_id  
+                            FROM products
+                            INNER JOIN cart 
+                            ON products.product_id = cart.product_id");
+                            $sql->execute();
+                            $result = $sql->get_result();
+                                while ($row = $result->fetch_assoc()) :?>
+                                
+                            <div class="cart-description">
+                                <img src="<?php echo $row['image']?>" alt="">
+                                <div>
+                                    <h3><?php echo $row['Name']?></h3>
+                                    <p><?php echo $row['Description']?></p>
+                                </div>     
                             </div>
-                            
-                        </div>
+
                         <div class="cart-price">
-                            <h3 class="new-price">Ksh 899</h3>
-                            <p class="old-price">Ksh 9000</p>       
+                            <h3 class="new-price"><?php echo $row['Price']?></h3>
+                            <p class="old-price">Ksh 900</p>       
                         </div>
-    
+
                         <div class="delete">
                             <i class="fa-regular fa-trash-can"></i>
                             <p>DELETE</p>
                         </div>
-    
+
                         <div class="incr-decr">
                             <button id="incr"><i class="fa-solid fa-plus"></i></button>
                             <p id="quantity">0</p>
                             <button id="decr"><i class="fa-solid fa-minus"></i></button>
                         </div>
-    
+
+                        <?php endwhile?>
                     </div>
     
                 </div>

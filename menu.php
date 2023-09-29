@@ -1,4 +1,5 @@
-<?php require __DIR__ . "/includes/header.php";
+<?php 
+require __DIR__ . "/includes/header.php";
 require __DIR__ . "/config/database.php"
 ?>
     <section class="sub-container">
@@ -15,7 +16,7 @@ require __DIR__ . "/config/database.php"
             <div class="meal-row">
                 <?php
                     // get the name, price and description from database
-                    $sql = $mysqli->prepare("SELECT * FROM meals LIMIT 3");
+                    $sql = $mysqli->prepare("SELECT * FROM products WHERE category_id = 1 LIMIT 3");
                     $sql->execute();
                     $res = $sql->get_result(); 
                     while ($row = $res->fetch_assoc()) :
@@ -26,7 +27,19 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <button class="menu-btn"><a href="cart.php?id=<?php echo $row['id']?>">Add to cart</a></button>
+                                    <form action="cart.php" method="post">
+                                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
+
+                                        <!-- Pass the user session id as well -->
+                                        <input type="hidden" name="user_id" value="<?php
+                                        if (isset($_SESSION['auth'])) {
+                                            $user_id = $_SESSION['auth']['id'];
+                                            echo $user_id;
+                                        }
+                                        ?>">
+                                        <button type="submit" class="menu-btn" name="foodSubmit">Add to cart</button>
+                                    </form>
+                                    
                                 </div>
                         </div>
                 <?php endwhile?>
@@ -38,7 +51,7 @@ require __DIR__ . "/config/database.php"
             <div class="meal-row">
                 <?php
                     // get the name, price and description from database
-                    $sql = $mysqli->prepare("SELECT * FROM drinks LIMIT 3");
+                    $sql = $mysqli->prepare("SELECT * FROM products WHERE category_id = 2 LIMIT 3");
                     $sql->execute();
                     $res = $sql->get_result(); 
                     while ($row = $res->fetch_assoc()) :
@@ -49,7 +62,19 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <button class="menu-btn"><a href="cart.php?idd=<?php echo $row['id']?>">Add to cart</a></button>
+                                    <form action="" method="post">
+                                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
+
+                                        <!-- Pass the user session id as well -->
+                                        <input type="hidden" name="user_id" value="<?php
+                                        if (isset($_SESSION['auth'])) {
+                                            $user_id = $_SESSION['auth']['id'];
+                                            echo $user_id;
+                                        }
+                                        ?>">
+                                        
+                                        <button type="submit" class="menu-btn" name="foodSubmit">Add to Cart</button>
+                                    </form>
                                 </div>
                         </div>
                 <?php endwhile?>
@@ -64,7 +89,7 @@ require __DIR__ . "/config/database.php"
             <div class="meal-row">
                 <?php
                     // get the name, price and description from database
-                    $sql = $mysqli->prepare("SELECT * FROM meals LIMIT 3");
+                    $sql = $mysqli->prepare("SELECT * FROM products WHERE category_id = 3 LIMIT 3");
                     $sql->execute();
                     $res = $sql->get_result(); 
                     while ($row = $res->fetch_assoc()) :
@@ -75,7 +100,18 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <button class="menu-btn"><a href="cart.php?iddd=<?php echo $row['id']?>">Add to cart</a></button>
+                                    <form action="" method="post">
+                                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
+
+                                        <!-- Pass the user session id as well -->
+                                        <input type="hidden" name="user_id" value="<?php
+                                        if (isset($_SESSION['auth'])) {
+                                            $user_id = $_SESSION['auth']['id'];
+                                            echo $user_id;
+                                        }
+                                        ?>">
+                                        <button type="submit" class="menu-btn" name="foodSubmit">Add to Cart</button>
+                                    </form>
                                 </div>
                         </div>
                 <?php endwhile?>

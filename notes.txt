@@ -1,0 +1,23 @@
+<div class="child">
+                            <img src="<?php echo $row['image']?>" alt="" class="menu-img">
+                                <div>
+                                    <p class="menu-name"><?php echo $row['Name']?></p>
+                                    <p class="price"><?php echo $row['Price']?></p>
+                                    <p><?php echo $row['Description']?></p>
+                                    <form action="cart.php" method="post">
+                                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
+                                        <input type="hidden" name="name" value="<?php echo $row['Name']?>">
+                                        <input type="hidden" name="price" value="<?php echo $row['Price']?>">
+                                        <input type="hidden" name="description" value="<?php echo $row['Description']?>">
+                                        <!-- Pass the user session id as well -->
+                                        <input type="hidden" name="user_id" value="<?php
+                                        if (isset($_SESSION['auth'])) {
+                                            $user_id = $_SESSION['auth']['id'];
+                                            echo $user_id;
+                                        }
+                                        ?>">
+                                        <button type="submit" class="menu-btn" name="foodSubmit">Add to cart</button>
+                                    </form>
+                                    
+                                </div>
+                        </div>
