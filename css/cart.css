@@ -116,6 +116,15 @@ button{
     padding: 10px 20px;
 }
 
+.quantity{
+    background-color: #eee;
+    border: 0;
+    outline: 0;
+    padding: 2px 2px 2px 15px;
+    width: 50px;
+    border-radius: 3px;
+}
+
 /* ----------------------------------large screens-------------------------------------------- */
 @media (min-width:800px){
     .cart-container{
