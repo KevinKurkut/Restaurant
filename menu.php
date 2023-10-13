@@ -101,7 +101,7 @@ require __DIR__ . "/config/database.php"
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
                                     <form action="cart.php" method="post">
-                                        <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
+                                        <input type="hidden" name="dessert_id" value="<?php echo $row['product_id']?>">
 
                                         <!-- Pass the user session id as well -->
                                         <input type="hidden" name="user_id" value="<?php

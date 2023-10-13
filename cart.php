@@ -32,11 +32,11 @@ if (isset($_POST['drinksSubmit'])) {
 
 // insert dessert into the cart table in database 
 if (isset($_POST['dessertSubmit'])) {
-    $product_id = $_POST['product_id'];
+    $dessert_id = $_POST['dessert_id'];
     $user_id = $_POST['user_id'];
     
     $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id) VALUES(?, ?)");
-    $statement->bind_param("ii", $user_id, $product_id);
+    $statement->bind_param("ii", $user_id, $dessert_id);
     $statement->execute();
 }
 ?>
