@@ -1,5 +1,3 @@
-
-
 <footer class="last-section">
     <div class="wrapper">
         <div class="contact-footer">

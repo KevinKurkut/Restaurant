@@ -3,14 +3,121 @@
     margin: 0;
     padding: 0;
 }
+:root{
+    --accent: #FFC75F;
+    --primary: #fff;
+    --secondary: #000;
+    --grey: #D3D3D3;
+}
 body{
     background-color: #D3D3D3;
 }
 img{
     max-width: 100%;
+    height: auto;
 }
+
+h1, h2{
+    margin: 0;
+}
+.wrapper{
+    max-width: 1100px;
+    width: 80%;
+    margin: 0 auto;
+}
+.flex{
+    display: flex;
+}
+.cart{
+    margin: 3rem 0;
+}
+.items-summary{
+    gap: 2rem;
+}
+.cart-items, .cart-summary{
+    background-color: var(--primary);
+}
+.cart-items{
+    flex-basis: 70%;
+    padding: 1rem;
+    gap: 1rem;
+}
+.cart-header, .cart-inner{
+    border-bottom: 1px solid;
+    padding-bottom: 1rem;
+}
+.cart-inner{
+    align-items: center;
+    padding: 2rem 0;
+}
+.cart-summary{
+    flex-basis: 30%;
+}
+.cart-name, .cart-price, .delete{
+    text-align: center;
+}
+.cart-name{
+    width: 40%;
+}
+.cart-price{
+    width: 10%;
+}
+.cart-img{
+    width: 15%;
+}
+.cart-quantity{
+    width: 25%;
+}
+input{
+    outline: none;
+    padding: 5px 0;
+    padding-left: 5px;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--grey);
+    font-size: 17px;
+    margin-bottom: 0;
+}
+.cart-summary{
+    padding: 1rem;
+    align-self: flex-start;
+}
+.delete{
+    width: 10%;
+}
+.fa-trash-can{
+    color: var(--accent);
+    font-size: 20px;
+    cursor: pointer; 
+}
+.btn-delete{
+    background: transparent;
+    padding: 5px;
+    border: 1px solid var(--accent);
+    cursor: pointer;
+}
+.btn-delete:hover{
+    background-color: red;
+    border: none;
+}
+.fa-trash-can:hover{
+    color: var(--primary);
+}
+.check{
+    width: 100%;
+    margin: 1rem 0;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent);
+    border: none;
+    cursor: pointer;
+}
+.sub-total{
+    margin: 1rem 0;
+    justify-content: space-between;
+}
+
 /* -----------------------------------small screens first--------------------------- */
-.top-cart{
+/* .top-cart{
     background-image: url(images/cartBg);
 }
 .wrapper{
@@ -123,10 +230,10 @@ button{
     padding: 2px 2px 2px 15px;
     width: 50px;
     border-radius: 3px;
-}
+} */
 
 /* ----------------------------------large screens-------------------------------------------- */
-@media (min-width:800px){
+/* @media (min-width:800px){
     .cart-container{
     display: flex;
     align-items: center;
@@ -139,4 +246,4 @@ button{
     .wrapper{
         max-width: 1100px;
     }
-}
+} */

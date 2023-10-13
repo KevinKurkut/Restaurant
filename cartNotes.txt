@@ -1,0 +1,44 @@
+
+
+
+
+
+                        <div class="cart-body">
+                        <!-- Get the cart contents -->
+                        <?php
+                            $sql = $mysqli->prepare("SELECT products.Name, products.Price,
+                            products.Description, products.image, cart.product_id,  
+                            cart.cart_id FROM products
+                            INNER JOIN cart 
+                            ON products.product_id = cart.product_id");
+                            $sql->execute();
+                            $result = $sql->get_result();
+                                while ($row = $result->fetch_assoc()) :?>
+                                
+                            <div class="cart-description">
+                                <img src="<?php echo $row['image']?>" alt="">
+                                <div>
+                                    <h3><?php echo $row['Name']?></h3>
+                                    <p><?php echo $row['Description']?></p>
+                                </div>     
+                            </div>
+
+                        <div class="cart-price">
+                            <h3 class="new-price"><?php echo $row['Price']?></h3>
+                            <p class="old-price">Ksh 900</p>       
+                        </div>
+
+                        <div class="delete">
+                            <i class="fa-regular fa-trash-can"></i>
+                            <p>DELETE</p>
+                        </div>
+
+                        <div class="incr-decr">
+                            <button class="incr">+</button>
+                            <input type="number" class="quantity" value="1">
+                            <button class="decr">-</button>
+                        </div>
+
+                        <?php endwhile?>
+                    </div>
+    

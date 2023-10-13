@@ -62,7 +62,7 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <form action="" method="post">
+                                    <form action="cart.php" method="post">
                                         <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
 
                                         <!-- Pass the user session id as well -->
@@ -73,7 +73,7 @@ require __DIR__ . "/config/database.php"
                                         }
                                         ?>">
                                         
-                                        <button type="submit" class="menu-btn" name="foodSubmit">Add to Cart</button>
+                                        <button type="submit" class="menu-btn" name="drinksSubmit">Add to Cart</button>
                                     </form>
                                 </div>
                         </div>
@@ -100,7 +100,7 @@ require __DIR__ . "/config/database.php"
                                     <p class="menu-name"><?php echo $row['Name']?></p>
                                     <p class="price"><?php echo $row['Price']?></p>
                                     <p><?php echo $row['Description']?></p>
-                                    <form action="" method="post">
+                                    <form action="cart.php" method="post">
                                         <input type="hidden" name="product_id" value="<?php echo $row['product_id']?>">
 
                                         <!-- Pass the user session id as well -->
@@ -110,7 +110,7 @@ require __DIR__ . "/config/database.php"
                                             echo $user_id;
                                         }
                                         ?>">
-                                        <button type="submit" class="menu-btn" name="foodSubmit">Add to Cart</button>
+                                        <button type="submit" class="menu-btn" name="dessertSubmit">Add to Cart</button>
                                     </form>
                                 </div>
                         </div>
@@ -124,50 +124,6 @@ require __DIR__ . "/config/database.php"
 
     <!-- ----------FOOTER SECTION ----------- -->
 
-    <footer class="last-section">
-        <div class="wrapper">
-            <div class="contact-footer">
-                <div class="contact">
-                    <h2>Eats</h2>
-                    <div class="contact-image first">
-                        <img src="icons/003-location.png" alt=""><p>Seventh Street Towers, <br>Milky Avenue</p>
-                    </div>
-                    <div class="contact-image">
-                        <img src="icons/002-mail.png" alt=""><p>milky4500@gmail.com</p>
-                    </div>
-                    <div class="contact-image">
-                        <img src="icons/001-phone-call.png" alt=""><p>0927726363</p>
-                    </div>
-                    
-                </div>
-
-                <div class="footer-items">
-                    <ul>
-                        <li>Book Reservation</li>
-                        <li>Lunch Specials</li>
-                        <li>Dinner Treats</li>
-                        </ul>
-                    <ul>
-                        <li>BreakFast</li>
-                        <li>Catering options</li>
-                        <li>Sitemap</li>
-                    </ul>
-                    <div class="signup-part">
-                        <input type="text" placeholder="Your email">
-                        <button class="signup">Signup</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="social-media">
-                <img src="icons/004-instagram.png" alt="">
-                <img src="icons/005-facebook-app-symbol.png" alt="">
-                <img src="icons/006-linkedin.png" alt="">
-            </div>
-        
-            <p class="copyright-text">© Copyright 2023 Fathi Abdi | All rights reserved</p>
-        </div>
-
-    </footer>
+    <?php require __DIR__ . "/includes/footer-section.php"?>
 
     <?php require __DIR__ . "/includes/footer.php"?>
