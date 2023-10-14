@@ -26,13 +26,13 @@ if (isset($_POST['drinksSubmit'])) {
     $user_id = $_POST['user_id'];
     
     $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id) VALUES(?, ?)");
-    $statement->bind_param("ii", $user_id, $product_id);
+    $statement->bind_param("ss", $user_id, $product_id);
     $statement->execute();
 }
 
 // insert dessert into the cart table in database 
 if (isset($_POST['dessertSubmit'])) {
-    $dessert_id = $_POST['dessert_id'];
+    $dessert_id = $_GET['pid'];
     $user_id = $_POST['user_id'];
     
     $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id) VALUES(?, ?)");
