@@ -225,5 +225,9 @@ require __DIR__ . "/includes/header.php"?>
 
 <?php require __DIR__ . "/includes/footer-section.php"?>
 
+<script>
+    <?php require_once("js/script.js");?>
+</script>
+
 <?php require __DIR__ . "/includes/footer.php"?>
     
