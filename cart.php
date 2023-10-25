@@ -49,11 +49,16 @@ if (isset($_POST['dessertSubmit'])) {
                 <div class="cart-header">
                     <!-- get the cart number from the database -->
                     <?php 
-                    $stmt = $mysqli->prepare("SELECT cart_id FROM cart");
+                    if (isset($_SESSION['auth'])) :
+                        $user_id = $_SESSION['auth']['id'];
+                    
+                    $stmt = $mysqli->prepare("SELECT cart_id FROM cart WHERE user_id = ?");
+                    $stmt->bind_param('s', $user_id);
                     $stmt->execute();
                     $result = $stmt->get_result();
                     if ($record = $result->fetch_assoc()) :?>
                         <h1>Cart (<?php echo $record['cart_id']?>)</h1>
+                    <?php endif ?>
                     <?php endif ?>
                 </div>
 
@@ -74,10 +79,13 @@ if (isset($_POST['dessertSubmit'])) {
                         <h2><?php echo $row['Name']?></h2>
                     </div>
                     <div class="cart-quantity">
-                        <input type="number" name="" id="">
+                        <input type="number" onchange="updateCart()" class="quantity">
                     </div>
                     <div class="cart-price">
-                        <h3><?php echo $row['Price']?></h3>
+                        <h3 class="realPrice">
+                        <?php echo $row['Price']?>
+                        <input type="hidden" class="price" value="<?php echo $row['Price']?>">
+                    </h3>
                     </div>
                     <div class="delete">
                         <button class="btn-delete" value="<?php echo $row['cart_id']?>">
@@ -104,6 +112,21 @@ if (isset($_POST['dessertSubmit'])) {
 </section>
 <?php require __DIR__ . "/includes/footer-section.php"?>
 
+
+<script>
+    // Increase or decrease the quantity to change the cart item total and grand total
+    let quantity = document.getElementsByClassName("quantity");
+    let price = document.getElementsByClassName("price");
+    let realPrice = document.getElementsByClassName("realPrice");
+
+    function updateCart(){
+        for (let i = 0; i < price.length; i++) {
+            realPrice[i].innerText = (price[i].value) * (quantity[i].value);
+        }
+    }
+
+    updateCart();
+</script>
 <?php require __DIR__ . "/includes/footer.php"?>
 
     

@@ -1,19 +1,19 @@
 // show the signup modal when signup link is clicked
-const signup = document.getElementById("signup");
-const login = document.getElementById("login");
+// const signup = document.getElementById("signup");
+// const login = document.getElementById("login");
 
-const signupForm = document.querySelector(".signup-form");
-const loginForm = document.querySelector(".login-form");
+// const signupForm = document.querySelector(".signup-form");
+// const loginForm = document.querySelector(".login-form");
 
-signup.addEventListener("click", ()=>{
-    signupForm.classList.add("active");
-    loginForm.classList.add("active");
-});
+// signup.addEventListener("click", ()=>{
+//     signupForm.classList.add("active");
+//     loginForm.classList.add("active");
+// });
 
-login.addEventListener("click", ()=>{
-    signupForm.classList.remove("active");
-    loginForm.classList.remove("active");
-});
+// login.addEventListener("click", ()=>{
+//     signupForm.classList.remove("active");
+//     loginForm.classList.remove("active");
+// });
 
 
 
@@ -107,30 +107,29 @@ dessertBtn.addEventListener("click", ()=>{
 
 
 
-// Increase or decrease the quantity to change the cart item total and grand total
-    let quantity = document.getElementsByClassName("quantity");
+
     // console.log(cartQuantity);
 
-    for (let i = 0; i < quantity.length; i++) {
-        let quantityItem  = quantity[i];
-        quantityItem.onchange = function(){
-            updateQuantity(quantityItem, i); //pass the index to identify each cart item
-        }  
-    }
+    // for (let i = 0; i < quantity.length; i++) {
+    //     let quantityItem  = quantity[i];
+    //     quantityItem.onchange = function(){
+    //         updateQuantity(quantityItem, i); //pass the index to identify each cart item
+    //     }  
+    // }
 
-    function updateQuantity(quantityItem, itemIndex){
-        let actualPrice = document.getElementsByClassName("actualPrice");
+    // function updateQuantity(quantityItem, itemIndex){
+    //     let actualPrice = document.getElementsByClassName("actualPrice");
 
-        for (let i = 0; i < actualPrice.length; i++) {
-        let total = 0;
-        let priceElement = parseInt(actualPrice[i].textContent);
-        // console.log(priceElement);
-        let quanElement = quantityItem.value;
-        console.log(quanElement);
-        total = parseInt(priceElement * quanElement);
-        console.log(total);   
-        actualPrice.innerHTML = parseInt(total.toFixed(2));  
-        }   
-    }
+    //     for (let i = 0; i < actualPrice.length; i++) {
+    //     let total = 0;
+    //     let priceElement = parseInt(actualPrice[i].textContent);
+    //     // console.log(priceElement);
+    //     let quanElement = quantityItem.value;
+    //     console.log(quanElement);
+    //     total = parseInt(priceElement * quanElement);
+    //     console.log(total);   
+    //     actualPrice.innerHTML = parseInt(total.toFixed(2));  
+    //     }   
+    // }
 
 
