@@ -21,7 +21,7 @@
                     if (isset($_SESSION['auth'])) :
                     $welcomeName = $_SESSION['auth']['fname'];
                     ?>
-                        <li class="nav-item nav-link">Welcome <?php echo $welcomeName?></li>
+                        <li class="nav-item nav-link">Welcome <?php echo  $welcomeName?></li>
                         <li class="nav-item"><a href="menu.php" class="nav-link">Menu</a></li>
                         <li class="nav-item"><a href="logout.php" class="nav-link">Logout</a></li>
                         <li class="nav-item"><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>

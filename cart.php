@@ -16,8 +16,8 @@ if (isset($_POST['foodSubmit'])) {
     $quantity = $_POST['quantity'];
     
 
-    $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id, quantity) VALUES(?, ?, ?)");
-    $statement->bind_param("iis", $user_id, $product_id, $quantity);
+    $statement = $mysqli->prepare("INSERT INTO cart(user_id, product_id, quantity) VALUES(?, ?, ?)");
+    $statement->bind_param("sss", $user_id, $product_id, $quantity);
     $statement->execute();
 }
 ?>
@@ -39,20 +39,28 @@ if (isset($_POST['foodSubmit'])) {
                     $result = $stmt->get_result();
                     if ($record = $result->fetch_assoc()) :?>
                         <h1>Cart (<?php echo $record['cart_id']?>)</h1>
+
+                        <?php else: ?>
+                            <h2>Cart (0)</h2>
                     <?php endif ?>
                     <?php endif ?>
                 </div>
 
+                <div class="cart-inner flex">
                 <?php
+                // to authenticate each user and show respective cart items
+                if (isset($_SESSION['auth_user']['id'])) :
+                    $user_id = $_SESSION['auth_user']['id'];
+                
                     $sql = $mysqli->prepare("SELECT products.Name, products.Price,
                     products.Description, products.image, cart.product_id, cart.quantity,  
                     cart.cart_id FROM products
                     INNER JOIN cart 
-                    ON products.product_id = cart.product_id");
+                    ON products.product_id = cart.product_id AND c.user_id ='$user_id'");
                     $sql->execute();
-                    $result = $sql->get_result();
+                    // if there are items in the cart show them
+                    if($result = $sql->get_result()):
                         while ($row = $result->fetch_assoc()) :?>
-                <div class="cart-inner flex">
                     <div class="cart-img">
                         <img src="<?php echo $row['image']?>" alt="">
                     </div>
@@ -72,8 +80,16 @@ if (isset($_POST['foodSubmit'])) {
                         <button class="btn-delete" value="<?php echo $row['cart_id']?>">
                         <i class="fa-regular fa-trash-can"></i></button>
                     </div>
-                </div>
+                
                 <?php endwhile?>
+                <?php else:?>
+                    <div>
+                        <h3>There are no items on the cart!</h3>
+                    </div>
+
+                <?php endif ?>
+                <?php endif ?>
+                </div>
             </div>
 
             <!-- cart summary -->
