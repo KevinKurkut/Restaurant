@@ -72,39 +72,6 @@ dessertBtn.addEventListener("click", ()=>{
 });
 
 
-// ajax code to remove cart item 
-    // delete employee
-    $(document).on('click', '.btn-delete', function (e) {
-        e.preventDefault();
-
-        if(confirm('Are you sure you want to delete this meal?'))
-        {
-            var meal_id = $(this).val();
-            $.ajax({
-                type: "POST",
-                url: "code.php",
-                data: {
-                    'delete_meal': true,
-                    'meal_id': meal_id
-                },
-                success: function (response) {
-
-                    var res = jQuery.parseJSON(response);
-                    if(res.status == 500) {
-
-                        alert(res.message);
-                    }else{
-                        alertify.set('notifier','position', 'top-right');
-                        alertify.success(res.message);
-
-                        $('.cart-items').load(location.href + " .cart-items");
-                    }
-                }
-            });
-        }
-    });
-
-
 
 
 

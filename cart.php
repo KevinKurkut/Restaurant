@@ -11,32 +11,13 @@ require __DIR__ . "/config/database.php";
 <?php 
 // insert meal into the cart table in database 
 if (isset($_POST['foodSubmit'])) {
-    $product_id = $_POST['product_id'];
+    $product_id = $_GET['pid'];
     $user_id = $_POST['user_id'];
+    $quantity = $_POST['quantity'];
     
 
-    $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id) VALUES(?, ?)");
-    $statement->bind_param("ii", $user_id, $product_id);
-    $statement->execute();
-}
-
-// insert drinks into the cart table in database 
-if (isset($_POST['drinksSubmit'])) {
-    $product_id = $_POST['product_id'];
-    $user_id = $_POST['user_id'];
-    
-    $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id) VALUES(?, ?)");
-    $statement->bind_param("ss", $user_id, $product_id);
-    $statement->execute();
-}
-
-// insert dessert into the cart table in database 
-if (isset($_POST['dessertSubmit'])) {
-    $dessert_id = $_GET['pid'];
-    $user_id = $_POST['user_id'];
-    
-    $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id) VALUES(?, ?)");
-    $statement->bind_param("ii", $user_id, $dessert_id);
+    $statement = $mysqli->prepare("INSERT INTO cart(product_id, user_id, quantity) VALUES(?, ?, ?)");
+    $statement->bind_param("iis", $user_id, $product_id, $quantity);
     $statement->execute();
 }
 ?>
@@ -64,7 +45,7 @@ if (isset($_POST['dessertSubmit'])) {
 
                 <?php
                     $sql = $mysqli->prepare("SELECT products.Name, products.Price,
-                    products.Description, products.image, cart.product_id,  
+                    products.Description, products.image, cart.product_id, cart.quantity,  
                     cart.cart_id FROM products
                     INNER JOIN cart 
                     ON products.product_id = cart.product_id");
@@ -79,7 +60,7 @@ if (isset($_POST['dessertSubmit'])) {
                         <h2><?php echo $row['Name']?></h2>
                     </div>
                     <div class="cart-quantity">
-                        <input type="number" onchange="updateCart()" class="quantity">
+                        <h3><?php echo $row['quantity']?></h3>
                     </div>
                     <div class="cart-price">
                         <h3 class="realPrice">
@@ -112,21 +93,41 @@ if (isset($_POST['dessertSubmit'])) {
 </section>
 <?php require __DIR__ . "/includes/footer-section.php"?>
 
+<?php require __DIR__ . "/includes/footer.php"?>
 
 <script>
-    // Increase or decrease the quantity to change the cart item total and grand total
-    let quantity = document.getElementsByClassName("quantity");
-    let price = document.getElementsByClassName("price");
-    let realPrice = document.getElementsByClassName("realPrice");
+    // ajax code to remove cart item 
+    // delete employee
+    $(document).on('click', '.btn-delete', function (e) {
+        e.preventDefault();
 
-    function updateCart(){
-        for (let i = 0; i < price.length; i++) {
-            realPrice[i].innerText = (price[i].value) * (quantity[i].value);
+        if(confirm('Are you sure you want to delete this meal?'))
+        {
+            var meal_id = $(this).val();
+            $.ajax({
+                type: "POST",
+                url: "code.php",
+                data: {
+                    'delete_meal': true,
+                    'meal_id': meal_id
+                },
+                success: function (response) {
+
+                    var res = jQuery.parseJSON(response);
+                    if(res.status == 500) {
+
+                        alert(res.message);
+                    }else{
+                        alertify.set('notifier','position', 'top-right');
+                        alertify.success(res.message);
+
+                        $('.cart-items').load(location.href + " .cart-items");
+                    }
+                }
+            });
         }
-    }
-
-    updateCart();
+    });
 </script>
-<?php require __DIR__ . "/includes/footer.php"?>
+
 
     

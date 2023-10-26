@@ -81,11 +81,11 @@ require __DIR__ . "/includes/header.php"?>
         <div class="form-blog">
             <form action="" class="book-form">
                 <h3 class="book">Book a table</h3>
-                <input type="text" id="" placeholder="Full Name">
-                <input type="date" id="" placeholder="Date">
-                <input type="number" id="" placeholder="People">
-                <input type="text" id="" placeholder="Phone">
-                <input type="email" id="" placeholder="Email">
+                <input type="text" id="" placeholder="Full Name" class="form-input">
+                <input type="date" id="" placeholder="Date" class="form-input">
+                <input type="number" id="" placeholder="People" class="form-input">
+                <input type="text" id="" placeholder="Phone" class="form-input">
+                <input type="email" id="" placeholder="Email" class="form-input">
                 
 
                 <div class="view-more">

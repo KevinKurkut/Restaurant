@@ -306,7 +306,7 @@ a{
     font-size: 26px;
     text-transform: uppercase;
 }
-input{
+.form-input{
     background-color: var(--grey);
     padding: 20px 10px;
     width: 100%;
@@ -543,8 +543,11 @@ input[type="date"]::-webkit-calendar-picker-indicator{
     font-weight: 700;
     font-size: 20px;
 }
+.quantity-input{
+    padding: 5px 10px;
+}
 
-/* !!!!!Login!!!!!!!! */
+/* ==========================!!!!!Login!!!!!!!!========================== */
 .intro-login{
     text-align: center;
 }
