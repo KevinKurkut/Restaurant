@@ -115,9 +115,9 @@ a{
 .nav-item i{
     font-size: 25px;
     color: var(--accent);
-    position: relative;
+    /* position: relative; */
 }
-.fa-cart-shopping::after{
+/* .fa-cart-shopping::after{
     content: "0";
     position: absolute;
     height: 20px;
@@ -131,7 +131,7 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
-}
+} */
 .nav-link{
     color: var(--secondary);
     font-weight: 600;

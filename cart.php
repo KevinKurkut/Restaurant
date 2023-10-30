@@ -33,20 +33,16 @@ if (isset($_POST['foodSubmit'])) {
                     if (isset($_SESSION['auth'])) :
                         $user_id = $_SESSION['auth']['id'];
                     
-                    $stmt = $mysqli->prepare("SELECT cart_id FROM cart WHERE user_id = ?");
-                    $stmt->bind_param('s', $user_id);
-                    $stmt->execute();
-                    $result = $stmt->get_result();
-                    if ($record = $result->fetch_assoc()) :?>
-                        <h1>Cart (<?php echo $record['cart_id']?>)</h1>
-
-                        <?php else: ?>
-                            <h2>Cart (0)</h2>
-                    <?php endif ?>
+                        $stmt = $mysqli->prepare("SELECT cart_id FROM cart WHERE user_id = ?");
+                        $stmt->bind_param('s', $user_id);
+                        $stmt->execute();
+                        $num_rows = $stmt->num_rows;?>
+                    
+                        <h1>Cart (<?php echo $num_rows?>)</h1>
                     <?php endif ?>
                 </div>
 
-                <div class="cart-inner flex">
+                
                 <?php
                 // to authenticate each user and show respective cart items
                 if (isset($_SESSION['auth_user']['id'])) :
@@ -58,38 +54,34 @@ if (isset($_POST['foodSubmit'])) {
                     INNER JOIN cart 
                     ON products.product_id = cart.product_id AND c.user_id ='$user_id'");
                     $sql->execute();
-                    // if there are items in the cart show them
-                    if($result = $sql->get_result()):
-                        while ($row = $result->fetch_assoc()) :?>
-                    <div class="cart-img">
-                        <img src="<?php echo $row['image']?>" alt="">
-                    </div>
-                    <div class="cart-name">
-                        <h2><?php echo $row['Name']?></h2>
-                    </div>
-                    <div class="cart-quantity">
-                        <h3><?php echo $row['quantity']?></h3>
-                    </div>
-                    <div class="cart-price">
-                        <h3 class="realPrice">
-                        <?php echo $row['Price']?>
-                        <input type="hidden" class="price" value="<?php echo $row['Price']?>">
-                    </h3>
-                    </div>
-                    <div class="delete">
-                        <button class="btn-delete" value="<?php echo $row['cart_id']?>">
-                        <i class="fa-regular fa-trash-can"></i></button>
-                    </div>
-                
-                <?php endwhile?>
-                <?php else:?>
-                    <div>
-                        <h3>There are no items on the cart!</h3>
-                    </div>
+                    $result = $sql->get_result();
 
+                    while ($row = $result->fetch_assoc()) :?>
+                    <div class="cart-inner flex">
+                        <div class="cart-img">
+                            <img src="<?php echo $row['image']?>" alt="">
+                        </div>
+                        <div class="cart-name">
+                            <h2><?php echo $row['Name']?></h2>
+                        </div>
+                        <div class="cart-quantity">
+                            <h3><?php echo $row['quantity']?></h3>
+                        </div>
+                        <div class="cart-price">
+                            <h3 class="realPrice">
+                            <?php echo $row['Price']?>
+                            <input type="hidden" class="price" value="<?php echo $row['Price']?>">
+                        </h3>
+                        </div>
+                        <div class="delete">
+                            <button class="btn-delete" value="<?php echo $row['cart_id']?>">
+                            <i class="fa-regular fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                <?php endwhile?>
                 <?php endif ?>
-                <?php endif ?>
-                </div>
+   
+                
             </div>
 
             <!-- cart summary -->
@@ -143,7 +135,4 @@ if (isset($_POST['foodSubmit'])) {
             });
         }
     });
-</script>
-
-
-    
+</script> 

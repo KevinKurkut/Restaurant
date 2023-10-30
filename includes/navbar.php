@@ -24,7 +24,20 @@
                         <li class="nav-item nav-link">Welcome <?php echo  $welcomeName?></li>
                         <li class="nav-item"><a href="menu.php" class="nav-link">Menu</a></li>
                         <li class="nav-item"><a href="logout.php" class="nav-link">Logout</a></li>
-                        <li class="nav-item"><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li>
+                        <!-- <li class="nav-item"><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i></a></li> -->
+                        <?php
+                        // get the number of items in the cart for a particular user
+                        $user_id = $_SESSION['auth']['id'];
+                        $stmt = $mysqli->prepare("SELECT cart_id FROM cart WHERE user_id = ?");
+                        $stmt->bind_param('s', $user_id);
+                        $stmt->execute();
+                        $num_rows = $stmt->num_rows;
+                        
+                        ?>
+                        <li class="nav-item"><a href="cart.php"><i class="fa-solid fa-cart-shopping"></i>
+                    <?php echo $num_rows;?>
+                    <?php $stmt->close()?>
+                    </a></li>
                     
                     <?php else : ?>  
                         <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
